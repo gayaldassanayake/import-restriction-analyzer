@@ -1,0 +1,20 @@
+[package]
+org = "gayaldassanayake"
+name = "restrictor_user"
+version = "0.1.0"
+distribution = "2201.7.0-20230622-064700-4a2dc6dd"
+
+[[dependency]]
+org = "gayaldassanayake"
+name = "import_restrictor"
+version = "0.1.0"
+repository = "local"
+
+[[dependency]]
+org = "gayaldassanayake"
+name = "non_stdlib_proj"
+version = "0.1.0"
+repository = "local"
+
+[build-options]
+observabilityIncluded = true
