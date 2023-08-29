@@ -23,6 +23,9 @@ public class ImportRestrictionAnalysisTask implements AnalysisTask<SyntaxNodeAna
 
     @Override
     public void perform(SyntaxNodeAnalysisContext context) {
+        // TODO:
+        //  make this a built-in plugin
+        //  check for ballerina* instead of ballerina, x, i
         Optional<ImportOrgNameNode> importOrgNameOpt = ((ImportDeclarationNode)context.node()).orgName();
         String importModuleName = ((ImportDeclarationNode)context.node()).moduleName().get(0).text();
 
