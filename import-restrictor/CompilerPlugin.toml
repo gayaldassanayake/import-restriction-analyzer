@@ -2,4 +2,4 @@
 class = "io.gayal.restrictor.ImportRestrictionPlugin"
 
 [[dependency]]
-path = "/Users/gayaldassanayake/Documents/devrel/import_restriction/ImportRestrictor/build/libs/ImportRestrictor-1.0-SNAPSHOT.jar"
+path = "/Users/gayaldassanayake/Documents/devrel/import-restriction-analyzer/ImportRestrictor/build/libs/ImportRestrictor-1.0.0.jar"
