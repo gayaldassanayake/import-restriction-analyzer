@@ -40,9 +40,9 @@ public class ImportRestrictionAnalysisTask implements AnalysisTask<SyntaxNodeAna
 
         if (!(isBallerinaImport || isCompPluginImport || isSubModule)) {
             DiagnosticInfo diagnosticInfo = new DiagnosticInfo(
-                    RestrictorDiagnosticCodes.IMPORT_101.getCode(),
-                    RestrictorDiagnosticCodes.IMPORT_101.getMessage(),
-                    RestrictorDiagnosticCodes.IMPORT_101.getSeverity());
+                    RestrictorDiagnosticCodes.IMPORT_VIOLATION.getCode(),
+                    RestrictorDiagnosticCodes.IMPORT_VIOLATION.getMessage(),
+                    RestrictorDiagnosticCodes.IMPORT_VIOLATION.getSeverity());
             context.reportDiagnostic(DiagnosticFactory.createDiagnostic(diagnosticInfo, context.node().location()));
         }
     }

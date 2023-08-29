@@ -3,8 +3,8 @@ package io.gayal.restrictor;
 import io.ballerina.tools.diagnostics.DiagnosticSeverity;
 
 public enum RestrictorDiagnosticCodes {
-    IMPORT_101(
-            "IMPORT_101",
+    IMPORT_VIOLATION(
+            "IMPORT_VIOLATION",
             "Only Ballerina standard library modules are allowed to be imported",
             DiagnosticSeverity.ERROR);
 
