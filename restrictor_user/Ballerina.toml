@@ -12,7 +12,7 @@ repository = "local"
 
 [[dependency]]
 org = "gayaldassanayake"
-name = "non_stdlib_proj"
+name = "inventory_manager"
 version = "0.1.0"
 repository = "local"
 

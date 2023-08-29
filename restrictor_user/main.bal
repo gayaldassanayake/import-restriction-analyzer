@@ -1,12 +1,24 @@
 import gayaldassanayake/import_restrictor as _;
 
-import ballerina/io as _;
-import ballerinax/choreo as _;
-import ballerinai/observe as _;
+import ballerina/log;
+import ballerinax/nats;
 
-import gayaldassanayake/restrictor_user.sub_mod as _;
+import gayaldassanayake/inventory_manager;
 
-import gayaldassanayake/non_stdlib_proj as _;
+public type Order record {
+    int orderId;
+    string productName;
+    decimal price;
+    boolean isValid;
+};
 
-public function main() {
+// Binds the consumer to listen to the messages published to the 'orders.valid' subject.
+service "orders.valid" on new nats:Listener(nats:DEFAULT_URL) {
+
+    remote function onMessage(Order 'order) returns error? {
+        if 'order.isValid {
+            log:printInfo(string `Received valid order for ${'order.productName}`);
+            inventory_manager:acceptOrder('order);
+        }
+    }
 }
