@@ -7,6 +7,6 @@ public type Order record {
     boolean isValid;
 };
 
-public function acceptOrder(Order 'order) {
+public isolated function acceptOrder(Order 'order) {
     log:printInfo( string `Order: ${'order.orderId} has been accepted.`);
 }
