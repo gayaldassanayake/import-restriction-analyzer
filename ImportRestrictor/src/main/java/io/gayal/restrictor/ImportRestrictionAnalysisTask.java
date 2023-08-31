@@ -16,16 +16,11 @@ import java.util.Set;
  * Analysis task for import restriction.
  */
 public class ImportRestrictionAnalysisTask implements AnalysisTask<SyntaxNodeAnalysisContext> {
-    private static final Set<String> ALLOWED_ORGS = new HashSet<>(Arrays.asList(
-            "ballerina", "ballerinax", "ballerinai"));
     private static final String THIS_PKG_ORG = "gayaldassanayake";
     private static final String THIS_PKG_NAME = "import_restrictor";
 
     @Override
     public void perform(SyntaxNodeAnalysisContext context) {
-        // TODO:
-        //  make this a built-in plugin
-        //  check for ballerina* instead of ballerina, x, i
         Optional<ImportOrgNameNode> importOrgNameOpt = ((ImportDeclarationNode)context.node()).orgName();
         String importModuleName = ((ImportDeclarationNode)context.node()).moduleName().get(0).text();
 
@@ -34,8 +29,8 @@ public class ImportRestrictionAnalysisTask implements AnalysisTask<SyntaxNodeAna
 
         String importOrgName = importOrgNameOpt.map(node -> node.orgName().text()).orElse(packageOrgName);
 
-        // Do not warn if package org is one of ballerina/ballerinax/ballerinai
-        boolean isBallerinaImport = ALLOWED_ORGS.contains(importOrgName);
+        // Do not warn if package org starts with "ballerina"
+        boolean isBallerinaImport = importOrgName.startsWith("ballerina");
         // Do not warn if the import is the import restrictor compiler plugin
         boolean isCompPluginImport = importOrgName.equals(THIS_PKG_ORG) && importModuleName.equals(THIS_PKG_NAME);
         // Do not warn if the import is a module of this package
