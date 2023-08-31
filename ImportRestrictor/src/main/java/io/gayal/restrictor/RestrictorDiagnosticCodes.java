@@ -5,7 +5,7 @@ import io.ballerina.tools.diagnostics.DiagnosticSeverity;
 public enum RestrictorDiagnosticCodes {
     IMPORT_VIOLATION(
             "IMPORT_VIOLATION",
-            "Only Ballerina standard library modules are allowed to be imported",
+            "Only Ballerina platform modules are allowed to be imported",
             DiagnosticSeverity.ERROR);
 
 
